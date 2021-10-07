@@ -1,13 +1,8 @@
 <template>
   <div>
     <nav>
-      <router-link to="/"> Home </router-link>
-      <router-link to="/feed"> Feed </router-link>
       <span v-if="isLoggedIn"> 
         <button @click="signOff"> Logout </button> 
-      </span>
-      <span v-else>
-        <router-link to="/register"> Register </router-link>
       </span>
     </nav>
     <router-view />

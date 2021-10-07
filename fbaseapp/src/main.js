@@ -2,6 +2,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { initializeApp } from 'firebase/app'
+import BootstrapVue3 from 'bootstrap-vue-3'
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import '../node_modules/bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
 const firebaseConfig = {
     apiKey: "AIzaSyDhamb20qKklCRPcO6G7jchB8NTMhRpKv8",
@@ -19,4 +22,5 @@ const firebaseConfig = {
   
 const app = createApp(App)
 app.use(router)
+app.use(BootstrapVue3)
 app.mount('#app')
