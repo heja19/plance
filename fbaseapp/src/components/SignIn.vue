@@ -11,14 +11,11 @@
 <script setup>
 import { ref } from 'vue'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
-import { useRouter } from 'vue-router' // import router
-
+import { useRouter } from 'vue-router'
 const email = ref('')
 const password = ref('')
-const errMsg = ref() // ERROR MESSAGE
-
+const errMsg = ref()
 const router = useRouter() // get a reference to our vue router
-
 const auth = getAuth();
 const signIn = () => { // we also renamed this method
   signInWithEmailAndPassword(auth, email.value, password.value) // THIS LINE CHANGED
