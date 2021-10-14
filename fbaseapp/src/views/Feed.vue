@@ -1,52 +1,56 @@
 <template>
-    <div>
+    <div class="kast1">
         <header>
-            <div class="col-sm-10">
+            <div>
                 <a href='#'><img src="@/assets/plance.png" class="header-icon"></a>
                 <a href='#'><img src="@/assets/person-fill.svg" class="person-settings"></a>
-                
-            <flexbox><calendar></calendar></flexbox>
             </div>
         </header>
+
+
         <body>
             <flexbox>
-            <div class="col-4">
-            <div>
+            <div class="calendar">
+                <flexbox><calendar></calendar></flexbox>
+            </div>
+            <div class="today">
                 <h4>Today's tasks</h4>
-                    <div>
+                    <div class="todayIn">
                         <h6>You don't have any tasks yet</h6>
                     </div>
             </div>
-            <div>
+            <div class="today">
                 <h4>Today's tasks</h4>
-                    <div>
+                    <div class="todayIn">
                         <h6>You don't have any tasks yet</h6>
                     </div>
-            </div>
-        </div>
-        </flexbox>
+            </div>   
+            </flexbox>
+
         <flexbox>
-        <div>
+        <div class="workspaceName">
             <h4>Workspace name</h4>
-            <div>
+            <div class="projectName">
                 <h5><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-project"></a>Add new project</h5>
-                    <div>
+                    <div class="subProjectName">
                         <h6><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-sub-project"></a>Add new sub-project</h6>
                     </div>
             </div>
         </div>
         </flexbox>
+
         <flexbox>
-        <div>
+        <div class="workspaceName">
             <h4>Workspace name</h4>
-            <div>
+            <div class="projectName">
                 <h5><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-project"></a>Add new project</h5>
-                    <div>
+                    <div class="subProjectName">
                         <h6><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-sub-project"></a>Add new sub-project</h6>
                     </div>
             </div>
         </div>
         </flexbox>
+
     </body>
     </div>
 </template>
@@ -70,14 +74,50 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-#row{
-    margin: 0;
+.kast1 {
+    width: 100%;
+    margin-left: 5%;
+}
+.calendar{
+    width: 100%;
+    margin-left: 0%;
+    box-shadow: none;
 }
 .person-settings {
     float: right;
     height: 70px;
     width: auto;
 
+}
+.today {
+    box-shadow: none;
+    border-radius: 5px;
+    background-color: #fae1ddd3;
+    border-color:azure;
+}
+.todayIn{
+    box-shadow: none;
+    border-radius: 5px;
+    background-color: #c0c0c0d3;
+    border-color:azure;
+}
+.workspaceName {
+    box-shadow: none;
+    border-radius: 5px;
+    background-color: #fae1ddd3;
+    border-color:azure;
+}
+.projectName {
+    box-shadow: none;
+    border-radius: 5px;
+    background-color: #c0c0c0d3;
+    border-color:azure;
+}
+.subProjectName {
+    box-shadow: none;
+    border-radius: 5px;
+    background-color: #e4e4e4d3;
+    border-color:azure;
 }
 .add-new-project {
     float: middle;
@@ -92,18 +132,13 @@ onBeforeUnmount(() => {
 div {
     /*border-style: groove;*/
     box-shadow: 0 4px 5px 0 rgba(169,169,169), 0 3px 15px 0 rgba(169,169,169);
-    /*border-radius: 5px;*/
+    border-radius: 10px;
     border-color:azure;
     width: 100%;
 }
 .header-icon {
     align-items: left;
-    height: 300px;
-    width: auto;
-    margin-left: 70px;
+    height: 100px;
+    margin-left: 1%;
 }
-/*flexbox {
-    display: flex;
-    flex-direction: row;
-}*/
 </style>

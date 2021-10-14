@@ -75,13 +75,13 @@ const register = () => {
 
 <style>
 #login{
-    /*border-style: groove;*/
     box-shadow: 0 4px 5px 0 rgba(169,169,169), 0 3px 15px 0 rgba(169,169,169);
     border-radius: 20px;
     background-color: #fcf4f3d3;
     border-color:azure;
     width: 50%;
     margin-left: 25%;
+    text-align: center;
 }
 
 </style>

@@ -20,10 +20,10 @@ export default {
 
 <style>
 .first-page-icon {
-    float: middle;
-    max-height: 500px;
-    width: auto;
-    max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
 }
 
 .main-container {
