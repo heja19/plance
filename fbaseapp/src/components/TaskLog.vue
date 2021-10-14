@@ -3,7 +3,7 @@
    <flexbox>
    <div>
      <h4>Task's log</h4>
-    <table class="table table-bordered mt-5">
+    <table class="table table-bordered table-light mt-7">
       <tbody>
         <tr v-for="(task, index) in tasks" :key="index-1">
           <td>
@@ -42,10 +42,8 @@
 
   <flexbox>
     <div class="col-4">
-      <div>
         <h4>Add tasks</h4>
       </div>
-    </div>
   </flexbox>
   
   <flexbox>

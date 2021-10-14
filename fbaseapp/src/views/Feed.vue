@@ -22,7 +22,7 @@
             </flexbox>
 
         
-        <div class="workspaceName">
+        <div class="today">
             <div class="feed">
                 <task-log></task-log>
             </div>
@@ -35,6 +35,7 @@
 </template>
 
 <script setup>
+import TaskLog from '@/components/TaskLog.vue'
 import calendar from '@/components/Calendar.vue'
 import { getAuth, onAuthStateChanged} from 'firebase/auth'
 import { useRouter } from 'vue-router'
@@ -50,18 +51,6 @@ const authListener = onAuthStateChanged(auth, function(user) {
 onBeforeUnmount(() => {
     authListener()
 })
-</script>
-
-<script>
-import AddTask from '../components/AddTask.vue'
-import TaskLog from '../components/TaskLog.vue'
-export default {
-    name: 'Feed',
-    components: {
-        AddTask,
-        TaskLog
-    }
-}
 </script>
 
 <style scoped>
