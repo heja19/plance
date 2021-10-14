@@ -18,38 +18,17 @@
                     <div class="todayIn">
                         <h6>You don't have any tasks yet</h6>
                     </div>
-            </div>
-            <div class="today">
-                <h4>Today's tasks</h4>
-                    <div class="todayIn">
-                        <h6>You don't have any tasks yet</h6>
-                    </div>
             </div>   
             </flexbox>
 
-        <flexbox>
+        
         <div class="workspaceName">
-            <h4>Workspace name</h4>
-            <div class="projectName">
-                <h5><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-project"></a>Add new project</h5>
-                    <div class="subProjectName">
-                        <h6><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-sub-project"></a>Add new sub-project</h6>
-                    </div>
+            <div class="feed">
+                <task-log></task-log>
             </div>
         </div>
-        </flexbox>
+    
 
-        <flexbox>
-        <div class="workspaceName">
-            <h4>Workspace name</h4>
-            <div class="projectName">
-                <h5><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-project"></a>Add new project</h5>
-                    <div class="subProjectName">
-                        <h6><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-sub-project"></a>Add new sub-project</h6>
-                    </div>
-            </div>
-        </div>
-        </flexbox>
 
     </body>
     </div>
@@ -73,6 +52,18 @@ onBeforeUnmount(() => {
 })
 </script>
 
+<script>
+import AddTask from '../components/AddTask.vue'
+import TaskLog from '../components/TaskLog.vue'
+export default {
+    name: 'Feed',
+    components: {
+        AddTask,
+        TaskLog
+    }
+}
+</script>
+
 <style scoped>
 .kast1 {
     width: 100%;
@@ -87,7 +78,6 @@ onBeforeUnmount(() => {
     float: right;
     height: 70px;
     width: auto;
-
 }
 .today {
     box-shadow: none;
