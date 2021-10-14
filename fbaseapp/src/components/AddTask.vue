@@ -9,30 +9,31 @@
 </template>
 
 <script> 
+import TaskLog from './TaskLog.vue';
 
 
-export default{
-    name: 'HelloWorld',
-    props: ['msg'],
+export default {
+  components: {
+    TaskLog
+  },
+  data() {
+    return {
+      users: [
+        {
+          id: 'task',
+          name: 'date',
+          email: '13.10.2021'
+        },
+        {
+          id: 'task',
+          name: 'date',
+          email: '14.10.2021'
+        },
+      ]
+    };
+  }
+};
 
-    methods: {
-      submitTask(){
-        if(this.task.length === 0) return;
-
-        this.tasks.push({
-            name:this.task,
-        })
-      }
-    },
-
-    data(){
-        return{
-            task: '',
-            date: ''
-        }
-    }
-
-}
 </script>
 
 

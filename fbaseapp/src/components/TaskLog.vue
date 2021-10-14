@@ -1,79 +1,165 @@
 <template>
  <div>
+   <flexbox>
+   <div>
     <table class="table table-bordered mt-5">
-      <thead>
-        <tr>
-          <th scope="col">Task</th>
-          <th scope="col" style="width: 120px">Status</th>
-          <th scope="col" class="text-center">Due Date</th>
-          <th scope="col" class="text-center">Delete</th>
-        </tr>
-      </thead>
       <tbody>
-        <tr v-for="(task,index) in tasks" :key="index-1">
+        <tr v-for="(task, index) in tasks" :key="index-1">
           <td>
-            {{task.status}}
+            <span
+              class="pointer noselect"
+              @click="changeStatus(index)"
+              :class="{
+                'text-danger': task.status === 'to-do',
+                'text-success': task.status === 'finished',
+              }"
+            >
+              {{ capitalizeFirstChar(task.status) }}
+            </span>
+
           </td>
           <td>
-            {{task.name}}
+            <span :class="{ 'line-through': task.status === 'Finished' }">
+              {{ task.name }}
+            </span>
           </td>
           <td class="text-center">
-            {{task.date}}
+            <span>
+              {{ task.date }}
+            </span>
           </td>
           <td class="text-center">
-            <add-input> :msg="task" </add-input>
+            <div @click="deleteTask(index)">
+              <span class="fa fa-trash pointer">Delete</span>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
+   </div>
+   </flexbox>
+
+  <flexbox>
+    <div class="col-4">
+      <div>
+        <h4>Add tasks</h4>
+      </div>
+    </div>
+  </flexbox>
+  
+  <flexbox>
+  <div class="d-flex">
+      <input v-model="task" type="text" placeholder="Add task" class="form-control">
+      <input v-model="date" type="text" placeholder="Add due date" class="form-control">
+      <button @click="submitTask" class="btn btn-warning rounded-0">Add</button>
+  </div>
+  </flexbox>
+
  </div>
+
+ 
 </template>
 
 <script> 
 
-import AddTask from '../components/AddTask.vue'
+
 export default{
-    name: 'HelloWorld',
+    name: 'Tasklog',
+
     props: {
-        msg: String
+        userData: {
+            nsg: String,
+        }
+    }, 
+
+    data() {
+    return {
+      task: "",
+      editedTask: null,
+      statuses: ["to-do", "finished"],
+
+      tasks: [
+       
+
+      ],
+    };
+  },
+  methods: {
+
+    capitalizeFirstChar(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
     },
 
-    components: {
-      'add-input' : AddTask
+    changeStatus(index) {
+      let newIndex = this.statuses.indexOf(this.tasks[index].status);
+      if (++newIndex > 1) newIndex = 0;
+      this.tasks[index].status = this.statuses[newIndex];
     },
-    
-    data(){
-      return{
-        tasks: [
-          {
-            name:'Jalutan koera',
-            status: '+',
-            date:'12.10.2021'
-          },
-          {
-            name:'Ei jaluta koera',
-            status: '+',
-            date:'13.10.2021'
-          }
-        ]
-      }
-    },
-    
-    methods: {
-      submitTask(){
-        if(this.task === 0) return;
 
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
+    },
+
+    editTask(index) {
+      this.task = this.tasks[index].name;
+      this.editedTask = index;
+    },
+
+    submitTask() {
+      if (this.task.length === 0) return;
+
+      if (this.editedTask != null) {
+        this.tasks[this.editedTask].name = this.task;
+        this.editedTask = null;
+      } else {
+   
         this.tasks.push({
-            name: this.task,
-            status: 'to-do'
-        })
+          name: this.task,
+          status: "to-do",
+          date: this.date
+        });
       }
-    }
-
-}
+      this.task = "";
+    },
+  },
+};
 </script>
 
 
-
 <style scoped>
+#row{
+    margin: 0;
+}
+.person-settings {
+    float: right;
+    height: 70px;
+    width: auto;
+
+}
+.add-new-project {
+    float: middle;
+    height: 20px;
+    width: auto;
+}
+.add-new-sub-project {
+    vertical-align: middle;
+    height: 15px;
+    width: auto;
+}
+div {
+    border-style: groove;
+    border-radius: 5px;
+    border-color:azure;
+    width: 100%;
+}
+.header-icon {
+    align-items: left;
+    height: 300px;
+    width: auto;
+    margin-left: 70px;
+}
+flexbox {
+    display: flex;
+    flex-direction: row;
+}
 </style>

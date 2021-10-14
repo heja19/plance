@@ -19,7 +19,7 @@
             </div>
         </div>
         </flexbox>
-        <flexbox>
+
             <div class="col-4">
             <div>
                 <h4>Tasks log</h4>
@@ -28,24 +28,8 @@
                     </div>
             </div>
         </div>
-        </flexbox>
-        <flexbox>
-        <div>
-            <h4>Add New Tasks</h4>
-            <div>
-                <h5> 
-                    <div id="feed">
-                        <add-task></add-task>
-                    </div>
-                    <!-- You will not be able to see this text. 
-                        <button type="button" v-on="Add">
-                        <img src="@/assets/plus-circle.svg" 
-                        class="add-new-project"> 
-                    </button> -->
-                </h5>
-            </div>
-        </div>
-        </flexbox>
+
+
     </body>
     </div>
 </template>
