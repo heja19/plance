@@ -90,8 +90,9 @@ onBeforeUnmount(() => {
     width: auto;
 }
 div {
-    border-style: groove;
-    border-radius: 5px;
+    /*border-style: groove;*/
+    box-shadow: 0 4px 5px 0 rgba(169,169,169), 0 3px 15px 0 rgba(169,169,169);
+    /*border-radius: 5px;*/
     border-color:azure;
     width: 100%;
 }
@@ -101,8 +102,8 @@ div {
     width: auto;
     margin-left: 70px;
 }
-flexbox {
+/*flexbox {
     display: flex;
     flex-direction: row;
-}
+}*/
 </style>
