@@ -1,65 +1,66 @@
 <template>
-    <div class="kast1">
+    <div>
         <header>
-            <div>
+            <div class="col-sm-10">
                 <a href='#'><img src="@/assets/plance.png" class="header-icon"></a>
                 <a href='#'><img src="@/assets/person-fill.svg" class="person-settings"></a>
+                
+            <flexbox><calendar></calendar></flexbox>
             </div>
         </header>
-
-
         <body>
             <flexbox>
-            <div class="calendar">
-                <flexbox><calendar></calendar></flexbox>
-            </div>
-            <div class="today">
+            <div class="col-4">
+            <div>
                 <h4>Today's tasks</h4>
-                    <div class="todayIn">
+                    <div>
                         <h6>You don't have any tasks yet</h6>
-                    </div>
-            </div>
-            <div class="today">
-                <h4>Today's tasks</h4>
-                    <div class="todayIn">
-                        <h6>You don't have any tasks yet</h6>
-                    </div>
-            </div>   
-            </flexbox>
-
-        <flexbox>
-        <div class="workspaceName">
-            <h4>Workspace name</h4>
-            <div class="projectName">
-                <h5><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-project"></a>Add new project</h5>
-                    <div class="subProjectName">
-                        <h6><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-sub-project"></a>Add new sub-project</h6>
                     </div>
             </div>
         </div>
         </flexbox>
-
         <flexbox>
-        <div class="workspaceName">
-            <h4>Workspace name</h4>
-            <div class="projectName">
-                <h5><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-project"></a>Add new project</h5>
-                    <div class="subProjectName">
-                        <h6><a href='#'><img src="@/assets/plus-circle.svg" class="add-new-sub-project"></a>Add new sub-project</h6>
+            <div class="col-4">
+            <div>
+                <h4>Tasks log</h4>
+                    <div id="feed">
+                        <task-log></task-log>
                     </div>
             </div>
         </div>
         </flexbox>
-
+        <flexbox>
+        <div>
+            <h4>Add New Tasks</h4>
+            <div>
+                <h5> 
+                    <div id="feed">
+                        <add-task></add-task>
+                    </div>
+                    <!-- You will not be able to see this text. 
+                        <button type="button" v-on="Add">
+                        <img src="@/assets/plus-circle.svg" 
+                        class="add-new-project"> 
+                    </button> -->
+                </h5>
+            </div>
+        </div>
+        </flexbox>
     </body>
     </div>
 </template>
 
 <script setup>
+
+//imports
 import calendar from '@/components/Calendar.vue'
 import { getAuth, onAuthStateChanged} from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import { onBeforeUnmount } from 'vue'
+
+
+
+//values
 const router = useRouter()
 const auth = getAuth()
 const authListener = onAuthStateChanged(auth, function(user) {
@@ -71,53 +72,34 @@ const authListener = onAuthStateChanged(auth, function(user) {
 onBeforeUnmount(() => {
     authListener()
 })
+
+
 </script>
 
-<style scoped>
-.kast1 {
-    width: 100%;
-    margin-left: 5%;
+<script>
+import AddTask from '../components/AddTask.vue'
+import TaskLog from '../components/TaskLog.vue'
+
+export default {
+    name: 'Feed',
+    components: {
+        AddTask,
+        TaskLog
+    }
 }
-.calendar{
-    width: 100%;
-    margin-left: 0%;
-    box-shadow: none;
+
+</script>
+
+
+<style scoped>
+#row{
+    margin: 0;
 }
 .person-settings {
     float: right;
     height: 70px;
     width: auto;
 
-}
-.today {
-    box-shadow: none;
-    border-radius: 5px;
-    background-color: #fae1ddd3;
-    border-color:azure;
-}
-.todayIn{
-    box-shadow: none;
-    border-radius: 5px;
-    background-color: #c0c0c0d3;
-    border-color:azure;
-}
-.workspaceName {
-    box-shadow: none;
-    border-radius: 5px;
-    background-color: #fae1ddd3;
-    border-color:azure;
-}
-.projectName {
-    box-shadow: none;
-    border-radius: 5px;
-    background-color: #c0c0c0d3;
-    border-color:azure;
-}
-.subProjectName {
-    box-shadow: none;
-    border-radius: 5px;
-    background-color: #e4e4e4d3;
-    border-color:azure;
 }
 .add-new-project {
     float: middle;
@@ -130,15 +112,19 @@ onBeforeUnmount(() => {
     width: auto;
 }
 div {
-    /*border-style: groove;*/
-    box-shadow: 0 4px 5px 0 rgba(169,169,169), 0 3px 15px 0 rgba(169,169,169);
-    border-radius: 10px;
+    border-style: groove;
+    border-radius: 5px;
     border-color:azure;
     width: 100%;
 }
 .header-icon {
     align-items: left;
-    height: 100px;
-    margin-left: 1%;
+    height: 300px;
+    width: auto;
+    margin-left: 70px;
+}
+flexbox {
+    display: flex;
+    flex-direction: row;
 }
 </style>

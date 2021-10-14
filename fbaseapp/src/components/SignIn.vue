@@ -1,11 +1,11 @@
 <template>
-    <div id="login">
+    <div>
         <h1> Login to Your Account </h1>
         <p> <input type='text' placeholder="Email" v-model='email'/> </p>
         <p> <input type='password' placeholder="Password" v-model='password'/> </p>
         <p v-if="errMsg"> {{ errMsg }} </p>
         <p> <button @click="signIn"> Log In </button> <button @click="register"> Register </button> </p>
-        <p><strong> OR </strong></p>
+        <p> ------------ OR ------------ </p>
         <p> <button @click="googleSignIn"> Continue with Google </button> </p>
     </div>
 </template>
@@ -71,17 +71,3 @@ const register = () => {
     });
   }
 </script>
-
-
-<style>
-#login{
-    box-shadow: 0 4px 5px 0 rgba(169,169,169), 0 3px 15px 0 rgba(169,169,169);
-    border-radius: 20px;
-    background-color: #fcf4f3d3;
-    border-color:azure;
-    width: 50%;
-    margin-left: 25%;
-    text-align: center;
-}
-
-</style>

@@ -3,8 +3,6 @@ import App from './App.vue'
 import router from './router'
 import { initializeApp } from 'firebase/app'
 import BootstrapVue3 from 'bootstrap-vue-3'
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
